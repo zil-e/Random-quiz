@@ -1,0 +1,213 @@
+import os
+from time import sleep
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def display_menu():
+    clear_screen()
+    print("""
+    ╔══════════════════════════════════╗
+    ║          QUIZ PROGRAM            ║
+    ╠══════════════════════════════════╣
+    ║                                  ║
+    ║    ██████╗ ██╗   ██╗██╗███████╗  ║
+    ║   ██╔═══██╗██║   ██║██║╚══███╔╝  ║
+    ║   ██║   ██║██║   ██║██║  ███╔╝   ║
+    ║   ██║▄▄ ██║██║   ██║██║ ███╔╝    ║
+    ║   ╚██████╔╝╚██████╔╝██║███████╗  ║
+    ║    ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝  ║
+    ║                                  ║
+    ╠══════════════════════════════════╣
+    ║ 1. 🚀 Start Quiz                 ║
+    ║ 2. ℹ️  View Instructions         ║
+    ║ 3. ❌ Exit Program               ║
+    ║                                  ║
+    ╚══════════════════════════════════╝
+    """)
+    choice = input("\n    Enter your choice (1-3): ")
+    return choice
+
+def show_instructions():
+    clear_screen()
+    print("""
+    ╔══════════════════════════════════╗
+    ║        QUIZ INSTRUCTIONS         ║
+    ╠══════════════════════════════════╣
+    ║                                  ║
+    ║ 📝 The quiz contains 10          ║
+    ║    multiple-choice questions     ║
+    ║                                  ║
+    ║ 🔠 For each question, enter the  ║
+    ║    letter (a, b, c, or d) of     ╕
+    ║    your answer                   ║
+    ║                                  ║
+    ║ 📊 You'll get your score at the  ║
+    ║    end of the quiz               ║
+    ║                                  ║
+    ║ 🍀 Good luck!                    ║
+    ║                                  ║
+    ╚══════════════════════════════════╝
+    """)
+    input("\n    Press Enter to return to the menu...")
+
+def display_question_box(question_num, question_text):
+    print(f"""
+    ╔══════════════════════════════════╗
+    ║          Question {question_num:2}            ║
+    ╠══════════════════════════════════╣
+    ║                                  ║
+    ║  {question_text.ljust(32)}║
+    ║                                  ║
+    """, end="")
+
+def display_options(options):
+    for option in options:
+        print(f"    ║  {option.ljust(32)}║")
+    print("""
+    ║                                  ║
+    ╚══════════════════════════════════╝
+    """)
+
+def run_quiz():
+    questions = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["a) London", "b) Paris", "c) Berlin", "d) Madrid"],
+            "answer": "b"
+        },
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "options": ["a) Venus", "b) Jupiter", "c) Mars", "d) Saturn"],
+            "answer": "c"
+        },
+        {
+            "question": "What is the largest mammal?",
+            "options": ["a) Elephant", "b) Blue Whale", "c) Giraffe", "d) Polar Bear"],
+            "answer": "b"
+        },
+        {
+            "question": "In which year did WWII end?",
+            "options": ["a) 1943", "b) 1945", "c) 1947", "d) 1950"],
+            "answer": "b"
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "options": ["a) Van Gogh", "b) Picasso", "c) Da Vinci", "d) Michelangelo"],
+            "answer": "c"
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "options": ["a) Go", "b) Au", "c) Ag", "d) Gd"],
+            "answer": "b"
+        },
+        {
+            "question": "Which country is home to the kangaroo?",
+            "options": ["a) Brazil", "b) Australia", "c) South Africa", "d) New Zealand"],
+            "answer": "b"
+        },
+        {
+            "question": "How many continents are there?",
+            "options": ["a) 5", "b) 6", "c) 7", "d) 8"],
+            "answer": "c"
+        },
+        {
+            "question": "What is the largest ocean on Earth?",
+            "options": ["a) Atlantic", "b) Indian", "c) Arctic", "d) Pacific"],
+            "answer": "d"
+        },
+        {
+            "question": "Which element has the atomic number 1?",
+            "options": ["a) Helium", "b) Oxygen", "c) Hydrogen", "d) Carbon"],
+            "answer": "c"
+        }
+    ]
+    
+    score = 0
+    clear_screen()
+    print("\n    ╔══════════════════════════════════╗")
+    print("    ║          QUIZ STARTED           ║")
+    print("    ╚══════════════════════════════════╝\n")
+    sleep(1)
+    
+    for i, q in enumerate(questions, 1):
+        clear_screen()
+        display_question_box(i, q['question'])
+        display_options(q['options'])
+        
+        while True:
+            user_answer = input("    Your answer (a-d): ").lower()
+            if user_answer in ['a', 'b', 'c', 'd']:
+                break
+            print("    Invalid input. Please enter a, b, c, or d.")
+        
+        clear_screen()
+        if user_answer == q['answer']:
+            print("""
+    ╔══════════════════════════════════╗
+    ║          CORRECT! 🎉            ║
+    ╚══════════════════════════════════╝
+            """)
+            score += 1
+        else:
+            print(f"""
+    ╔══════════════════════════════════╗
+    ║          WRONG! 😞              ║
+    ║    The correct answer is {q['answer']}      �
+    ╚══════════════════════════════════╝
+            """)
+        sleep(1.5)
+    
+    clear_screen()
+    print(f"""
+    ╔══════════════════════════════════╗
+    ║         QUIZ COMPLETED           ║
+    ╠══════════════════════════════════╣
+    ║                                  ║
+    ║  Your score: {score}/{len(questions)}              ║
+    ║                                  ║
+    """)
+    
+    if score == len(questions):
+        print("    ║  🏆 Perfect! All correct! 🏆  ║")
+    elif score >= len(questions)*0.7:
+        print("    ║  👍 Great job! 👍          ║")
+    elif score >= len(questions)/2:
+        print("    ║  😊 Good effort!           ║")
+    else:
+        print("    ║  💪 Keep practicing! 💪    ║")
+    
+    print("""
+    ║                                  ║
+    ╚══════════════════════════════════╝
+    """)
+    input("\n    Press Enter to return to the menu...")
+
+def main():
+    clear_screen()
+    print("\n    Welcome to the Quiz Program!")
+    sleep(1.5)
+    
+    while True:
+        choice = display_menu()
+        
+        if choice == "1":
+            run_quiz()
+        elif choice == "2":
+            show_instructions()
+        elif choice == "3":
+            clear_screen()
+            print("""
+    ╔══════════════════════════════════╗
+    ║    Thanks for playing! 👋       ║
+    ║    See you next time!            ║
+    ╚══════════════════════════════════╝
+            """)
+            sleep(1.5)
+            break
+        else:
+            print("\n    Invalid choice. Please enter 1, 2, or 3.")
+            sleep(1)
+
+if __name__ == "__main__":
+    main()
