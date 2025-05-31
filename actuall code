@@ -87,38 +87,38 @@ def run_quiz():
             "answer": "b"
         },
         {
-            "question": "In which year did WWII end?",
-            "options": ["a) 1943", "b) 1945", "c) 1947", "d) 1950"],
+            "question": "In which year did yes?",
+            "options": ["a) 1943", "b) N/A", "c) No", "d) True"],
             "answer": "b"
         },
         {
-            "question": "Who painted the Mona Lisa?",
-            "options": ["a) Van Gogh", "b) Picasso", "c) Da Vinci", "d) Michelangelo"],
+            "question": "How many slippers can egg?",
+            "options": ["a) wat?", "b) cheese", "c) 0", "d) 3 if yes"],
             "answer": "c"
         },
         {
-            "question": "What is the chemical symbol for gold?",
-            "options": ["a) Go", "b) Au", "c) Ag", "d) Gd"],
+            "question": "What is the chemical symbol for █?",
+            "options": ["a) █", "b) █", "c) █", "d) █"],
             "answer": "b"
         },
         {
-            "question": "Which country is home to the kangaroo?",
-            "options": ["a) Brazil", "b) Australia", "c) South Africa", "d) New Zealand"],
+            "question": "The answer is very big",
+            "options": ["a) Brazil", "b) AAAAAAAAAAAAAAA", "c) very big", "d) eh?"],
             "answer": "b"
         },
         {
-            "question": "How many continents are there?",
+            "question": "raíz cuadrada de cuarenta y nueve",
             "options": ["a) 5", "b) 6", "c) 7", "d) 8"],
             "answer": "c"
         },
         {
-            "question": "What is the largest ocean on Earth?",
-            "options": ["a) Atlantic", "b) Indian", "c) Arctic", "d) Pacific"],
+            "question": "Which is the largest?",
+            "options": ["a) the |argest", "b) AAAAAAAAAAAAA", "c) you", "d) the largest"],
             "answer": "d"
         },
         {
-            "question": "Which element has the atomic number 1?",
-            "options": ["a) Helium", "b) Oxygen", "c) Hydrogen", "d) Carbon"],
+            "question": "What is the name of my pet rock?",
+            "options": ["a) Intestine", "b) Rock", "c) 🥚ggE", "d) JFK"],
             "answer": "c"
         }
     ]
@@ -145,14 +145,14 @@ def run_quiz():
         if user_answer == q['answer']:
             print("""
     ╔══════════════════════════════════╗
-    ║          CORRECT! 🎉            ║
+    ║          CORRECT! 😡            ║
     ╚══════════════════════════════════╝
             """)
             score += 1
         else:
             print(f"""
     ╔══════════════════════════════════╗
-    ║          WRONG! 😞              ║
+    ║          WRONG! 🤣              ║
     ║    The correct answer is {q['answer']}      �
     ╚══════════════════════════════════╝
             """)
@@ -169,13 +169,13 @@ def run_quiz():
     """)
     
     if score == len(questions):
-        print("    ║  🏆 Perfect! All correct! 🏆  ║")
+        print("    ║  🤓 Perfect! You is nerd! 🤓  ║")
     elif score >= len(questions)*0.7:
-        print("    ║  👍 Great job! 👍          ║")
+        print("    ║  😂 Imagine! 😂          ║")
     elif score >= len(questions)/2:
-        print("    ║  😊 Good effort!           ║")
+        print("    ║  🥚 What you egg! 🥚          ║")
     else:
-        print("    ║  💪 Keep practicing! 💪    ║")
+        print("    ║  🤣 Skill issue! 🤣    ║")
     
     print("""
     ║                                  ║
@@ -199,14 +199,14 @@ def main():
             clear_screen()
             print("""
     ╔══════════════════════════════════╗
-    ║    Thanks for playing! 👋       ║
+    ║    Thanks for failing! 🥚        ║
     ║    See you next time!            ║
     ╚══════════════════════════════════╝
             """)
             sleep(1.5)
             break
         else:
-            print("\n    Invalid choice. Please enter 1, 2, or 3.")
+            print("\n    Is you dumb? Please enter 1, 2, or 3!")
             sleep(1)
 
 if __name__ == "__main__":
